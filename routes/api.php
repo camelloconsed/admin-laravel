@@ -22,9 +22,11 @@ Route::group(['middleware' => 'auth:api'], function() {
 
 
     Route::resource('orchards', 'V1\OrchardController');
+    Route::get('orchards/{cod_huerto}/history', 'V1\OrchardController@history');
     Route::resource('sectors', 'V1\SectorController');
     Route::resource('ubications', 'V1\UbicationController');
     Route::resource('devices', 'V1\DeviceController');
+    Route::resource('polygons', 'V1\PolygonController');
 
     
 });

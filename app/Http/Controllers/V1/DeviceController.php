@@ -5,11 +5,11 @@ namespace App\Http\Controllers\V1;
 use App\Helpers\DatabaseConnection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Orchard;
+use App\Device;
 use Auth;
 use DB;
 
-class OrchardController extends Controller
+class DeviceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,33 +28,15 @@ class OrchardController extends Controller
 
         $customer = Auth::user()->customer;
         $connection = DatabaseConnection::setConnection($customer);
-        $orchards = $connection->table('MAE_HUERTOS')->select('cod_huerto', 'descripcion')->paginate($request->per_page);
-
-        return $this->returnApiSuccess($orchards, 'orchards');
-    }
-
-    public function history(Request $request)
-    {
-        if(!isset($request->page)){
-            $request->page = 1;
-        }
-
-        if(!isset($request->per_page)){
-            $request->per_page = 10;
-        }
-
-        $customer = Auth::user()->customer;
-        $connection = DatabaseConnection::setConnection($customer);
-        $rows = $connection->table('MAE_PROGRAMAS_RIEGO_HISTORIAL')
-            ->select('COD_PROGRAMA','ORDEN_PROGRAMA_HISTORIAL','NOMBRE','FECHA_HORA_INICIO', 'FECHA_HORA_ESTADO', 'TIEMPO_OPERACION', 'TIPO_COD_CAU', 'LITROS_REGADOS', 'COD_HUERTO', 'SECTORES', 'PROM_PRECIPITACION', 'MM_RIEGO', 'M3_PROGRAMADO', 'MM_RIEGO_PROGRAMADO');
-        
-        if(isset($request->cod_huerto)){
-            $rows = $rows->where('cod_huerto', $request->cod_huerto);
+        $rows = $connection->table('MAE_DISPOSITIVOS')
+            ->select('tipo_dispositivo', 'cod_dispositivo', 'nombre', 'valor_1', 'valor_2', 'fecha_ult_encuesta', 'tipo_ubicacion', 'cod_ubicacion');
+        if(isset($request->cod_ubicacion)){
+            $rows = $rows->where('cod_ubicacion', $request->cod_ubicacion);
         }
 
         $rows = $rows->paginate($request->per_page);
 
-        return $this->returnApiSuccess($rows, 'history');
+        return $this->returnApiSuccess($rows, 'sectors');
     }
 
     /**

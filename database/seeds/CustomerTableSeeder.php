@@ -15,8 +15,8 @@ class CustomerTableSeeder extends Seeder
     {
         $customers = [
             [
-                'name' => 'Juanito',
-                'description' => 'Lopez',
+                'name' => 'Huertos Lopez',
+                'description' => 'ESP_SOCPFSVA',
                 'logo' => 'test',
                 'contact_name' => 'Eduardo Customer',
                 'contact_position' => 'Gerente',
@@ -31,6 +31,66 @@ class CustomerTableSeeder extends Seeder
                     ['forenames' => 'Jean',
                     'surnames' => 'Pitt',
                     'email' => 'customer1@jumpitt.com',
+                    'password' => '123456']
+                ]
+            ],
+            [
+                'name' => 'Huertos Dominguez',
+                'description' => 'ESP_SOCPFLQA',
+                'logo' => 'test',
+                'contact_name' => 'Eduardo Customer',
+                'contact_position' => 'Gerente',
+                'contact_phone' => '123',
+                'contact_email' => 'customer@jumpitt.com',
+                'db_host' => '173.212.196.198',
+                'db_port' => '1433',
+                'db_name' => 'ESP_SOCPFLQA',
+                'db_user' => 'frontend',
+                'db_password' => 'f4e2.1',
+                'users' => [
+                    ['forenames' => 'Jean',
+                    'surnames' => 'Pitt',
+                    'email' => 'customer2@jumpitt.com',
+                    'password' => '123456']
+                ]
+            ],
+            [
+                'name' => 'Huertos Ramirez',
+                'description' => 'ESP_SOCPFAPO',
+                'logo' => 'test',
+                'contact_name' => 'Eduardo Customer',
+                'contact_position' => 'Gerente',
+                'contact_phone' => '123',
+                'contact_email' => 'customer@jumpitt.com',
+                'db_host' => '5.189.138.165',
+                'db_port' => '1433',
+                'db_name' => ' ESP_SOCPFAPO',
+                'db_user' => 'frontend',
+                'db_password' => 'f4e2.1',
+                'users' => [
+                    ['forenames' => 'Jean',
+                    'surnames' => 'Pitt',
+                    'email' => 'customer3@jumpitt.com',
+                    'password' => '123456']
+                ]
+            ],
+            [
+                'name' => 'Huertos Martinez',
+                'description' => 'ESP_SOCPFDLC',
+                'logo' => 'test',
+                'contact_name' => 'Eduardo Customer',
+                'contact_position' => 'Gerente',
+                'contact_phone' => '123',
+                'contact_email' => 'customer@jumpitt.com',
+                'db_host' => '5.189.138.165',
+                'db_port' => '1433',
+                'db_name' => ' ESP_SOCPFDLC',
+                'db_user' => 'frontend',
+                'db_password' => 'f4e2.1',
+                'users' => [
+                    ['forenames' => 'Jean',
+                    'surnames' => 'Pitt',
+                    'email' => 'customer4@jumpitt.com',
                     'password' => '123456']
                 ]
             ]
