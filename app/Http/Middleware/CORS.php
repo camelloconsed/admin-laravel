@@ -15,7 +15,7 @@ class CORS
      */
     public function handle($request, Closure $next)
     {
-        $domains = ['http://localhost:3000','https://tudominio.cl'];
+        $domains = ['http://localhost:3000','https://hydrasuccess.jumpittlabs.cl'];
         if (isset($request->server()['HTTP_ORIGIN'])) {
             $origin = $request->server()['HTTP_ORIGIN'];
             if (in_array($origin, $domains)) {
