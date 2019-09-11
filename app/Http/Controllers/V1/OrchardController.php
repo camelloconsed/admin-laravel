@@ -52,7 +52,7 @@ class OrchardController extends Controller
             $rows = $rows->where('cod_huerto', $request->cod_huerto);
         }
 
-        $rows = $rows->paginate($request->per_page);
+        $rows = $rows->orderBy('FECHA_HORA_INICIO', 'DESC')->paginate($request->per_page);
 
         return $this->returnApiSuccess($rows, 'history');
     }
