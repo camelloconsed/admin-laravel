@@ -6,6 +6,7 @@ use Laravel\Passport\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\ResetPasswordNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -45,5 +46,16 @@ class Admin extends Authenticatable
     public function customer()
     {
         return $this->belongsTo('App\Customer');
+    }
+
+     /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
     }
 }
