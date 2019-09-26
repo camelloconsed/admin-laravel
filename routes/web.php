@@ -18,4 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::post('customer_store','CustomerController@store');
-Route::resource('customer','CustomerController');      
+Route::resource('customer','CustomerController');
+Route::get('users/{id}/customer', [
+    'uses'  => 'UserController@index',
+    'as'    => 'users.index'
+]);
+Route::resource('users', 'UserController')->except('index');      

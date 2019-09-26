@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -11,9 +13,12 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+                
+        $users = Customer::join('users', 'users.customer_id', 'customers.id')->where('users.customer_id', $id)->get();
+        
+        return view('users.index', compact('users'));
     }
 
     /**

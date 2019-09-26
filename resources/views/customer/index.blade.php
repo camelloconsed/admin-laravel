@@ -21,7 +21,6 @@
                             <a class="btn btn-primary float-right" href="{{ route('customer.create') }}">Add Company</a>
                         </div>
                     </div>
-
                 </div>
                 <div class="card-body">
                     <table class="table table-borderless">
@@ -30,7 +29,7 @@
                             @foreach ($customers as $customer)
                             <tr>
                                 <td>{{ $customer->name }}</td>
-                                <td><a class="btn btn-primary" href="#"><i class="fas fa-users"></i></a></td>
+                                <td><a class="btn btn-primary" href="{{ route('users.index', $customer->id) }}"><i class="fas fa-users"></i></a></td>
                                 <td><a class="btn btn-success" href="{{ route('customer.edit', $customer->id) }}"><i
                                             class="fas fa-edit"></i></a></td>
                                 <td>
@@ -44,42 +43,12 @@
                                 </td>
                             </tr>
                             @endforeach
-
-
                         </tbody>
                     </table>
                 </div>
             </div>
-
-        </div>
-
-
-
-
-
-
-
-
-        <!--
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                          You are logged in!
-                </div>
-            </div>
-            
-        </div>
-        -->
+        </div>  
     </div>
 </div>
 @endsection
-
 @endauth
