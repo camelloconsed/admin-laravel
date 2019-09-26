@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Customer;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $customers = Customer::all();    
+        return view('home', compact('customers'));
     }
+
+    
+  
+
+
 }
