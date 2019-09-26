@@ -152,8 +152,7 @@
                         
                         <div class="row pt-4 pb-4 pr-3 pl-3">
                             <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
-                        </div>
-
+                        </div>                        
                     </form>
                 </div>
             </div>
