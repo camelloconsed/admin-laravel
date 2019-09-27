@@ -65,6 +65,7 @@
                                 <strong class="text-danger">{{ $errors->first('description') }}</strong>                                
                             @endif
                         </div>
+                        
                         <div class="input-group-prepend">
                             <label for="formGroupExampleInput2">Logo</label>
                         </div>
@@ -76,6 +77,7 @@
                                 <strong class="text-danger">{{ $errors->first('logo') }}</strong>                                
                             @endif
                         </div>
+                    
                         <div class="form-group">
                             <label for="formGroupExampleInput">Contact Name</label>
                             <input type="text" class="form-control" id="contact_name" name="contact_name" placeholder="Eduardo Customer" value="{{ old('contact_name') }}">

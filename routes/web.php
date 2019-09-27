@@ -19,8 +19,15 @@ Auth::routes();
 
 Route::post('customer_store','CustomerController@store');
 Route::resource('customer','CustomerController');
-Route::get('users/{id}/customer', [
+Route::get('customer/{id}/user', [
     'uses'  => 'UserController@index',
     'as'    => 'users.index'
-]);
-Route::resource('users', 'UserController')->except('index');      
+    ]);
+    Route::get('users/create/{id}', [
+        'uses'  => 'UserController@create',
+        'as'    => 'users.create'
+        ]);
+        
+Route::post('/updateUser','UserController@update')->name('updateUser');
+Route::get('users/{id}/{idCustomer}/edit', 'UserController@edit')->name('users.edit');
+Route::resource('users', 'UserController')->except('index','create','edit');      
