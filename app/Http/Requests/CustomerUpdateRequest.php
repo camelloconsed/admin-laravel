@@ -38,7 +38,7 @@ class CustomerUpdateRequest extends FormRequest
             'db_user'                    => 'required|string|max:255',    
             //'email'                    => 'required|email|max:255|unique:users',
             'db_password'                   => 'required|string|min:6|max:30',
-            'password_confirm'           => 'required|string|same:db_password',
+            //'password_confirm'           => 'required|string|same:db_password',
         ];
     }
 
@@ -59,7 +59,7 @@ class CustomerUpdateRequest extends FormRequest
             'password.required'         => 'Password Required',
             'password.min'              => 'Must contain at least 6 characters ',
             'db_password.max'              => 'Password max exceed',
-            'password_confirm.required' => 'Confirmation password required',
+            //'password_confirm.required' => 'Confirmation password required',
             //'password_confirm.same'     => 'Passwords do not match',
         ];
     }

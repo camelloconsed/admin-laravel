@@ -93,7 +93,7 @@
                         <div class="form-group">
                             <label for="formGroupExampleInput2">DB Host</label>
                             <input type="text" class="form-control" id="db_host" name="db_host"
-                                value="{{ old('db_host') }}" placeholder="000.000.000.00">
+                                value="{{ $customer->db_host }}" placeholder="000.000.000.00">
                             @if ($errors->has('db_host'))
                             <strong class="text-danger">{{ $errors->first('db_host') }}</strong>
                             @endif
@@ -101,7 +101,7 @@
                         <div class="form-group">
                             <label for="formGroupExampleInput2">DB Port</label>
                             <input type="text" class="form-control" id="db_port" name="db_port"
-                                value="{{ old('db_port') }}" placeholder="1234">
+                                value="{{ $customer->db_port }}" placeholder="1234">
                             @if ($errors->has('db_port'))
                             <strong class="text-danger">{{ $errors->first('db_port') }}</strong>
                             @endif
@@ -109,7 +109,7 @@
                         <div class="form-group">
                             <label for="formGroupExampleInput2">DB Name</label>
                             <input type="text" class="form-control" id="db_name" name="db_name"
-                                value="{{ old('db_name') }}" placeholder="ESP_SOCPFSVA">
+                                value="{{ $customer->db_name }}" placeholder="ESP_SOCPFSVA">
                             @if ($errors->has('db_name'))
                             <strong class="text-danger">{{ $errors->first('db_name') }}</strong>
                             @endif
@@ -124,7 +124,7 @@
                         <div class="form-group">
                             <label for="formGroupExampleInput2">DB User</label>
                             <input type="text" class="form-control" id="db_user" name="db_user"
-                                value="{{ old('db_user') }}" placeholder="frontend">
+                                value="{{ $customer->db_name }}" placeholder="frontend">
                             @if ($errors->has('db_user'))
                             <strong class="text-danger">{{ $errors->first('db_user') }}</strong>
                             @endif
@@ -137,6 +137,7 @@
                             <strong class="text-danger">{{ $errors->first('db_password') }}</strong>
                             @endif
                         </div>
+                        <!--
                         <div class="form-group">
                             <label for="exampleInputPassword1">Confirm Password</label>
                             <input type="password" class="form-control" id="password_confirm" name="password_confirm"
@@ -145,6 +146,7 @@
                             <strong class="text-danger">{{ $errors->first('password_confirm') }}</strong>
                             @endif
                         </div>
+                    -->
                     </div>
                 </div>
             </div>

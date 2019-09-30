@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
+Route::middleware('auth:web')->group(function(){
 Route::post('customer_store','CustomerController@store');
 Route::resource('customer','CustomerController');
 Route::get('customer/{id}/user', [
@@ -31,3 +32,5 @@ Route::get('customer/{id}/user', [
 Route::post('/updateUser','UserController@update')->name('updateUser');
 Route::get('users/{id}/{idCustomer}/edit', 'UserController@edit')->name('users.edit');
 Route::resource('users', 'UserController')->except('index','create','edit');      
+
+    });

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="card">
-        <div class="card-header">Edit the user  {{ $user->id }}</div>
+        <div class="card-header">Edit the user</div>
         <div class="card-body">
             <form  action="{{ route('updateUser')}}" method="post">
                 {{-- @method('PATCH') --}}
@@ -12,14 +12,14 @@
                 <input name="customer_id" type="hidden" value="{{ $idCustomer }}">
                 <div class="form-group">
                     <label for="formGroupExampleInput">Forenames</label>
-                    <input type="text" class="form-control" id="forenames" name="forenames" placeholder="Jean">
+                    <input type="text" class="form-control" id="forenames" name="forenames" placeholder="Jean" value="{{ $user->forenames }}">
                     @if ($errors->has('forenames'))
                     <strong class="text-danger">{{ $errors->first('forenames') }}</strong>
                     @endif
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Surnames</label>
-                    <input type="text" class="form-control" id="surnames" name="surnames" placeholder="Pitt">
+                    <input type="text" class="form-control" id="surnames" name="surnames" placeholder="Pitt" value="{{ $user->surnames }}">
                     @if ($errors->has('surnames'))
                     <strong class="text-danger">{{ $errors->first('surnames') }}</strong>
                     @endif
@@ -27,11 +27,11 @@
                 <div class="form-group">
                     <label for="formGroupExampleInput">Email</label>
                     <input type="text" class="form-control" id="email" name="email" 
-                        placeholder="example@example.com">
+                        placeholder="example@example.com" value="{{ $user->email }}">
                     @if ($errors->has('email'))
                     <strong class="text-danger">{{ $errors->first('email') }}</strong>
                     @endif
-                </div>
+                </div>  
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Password</label>
                     <input type="text" class="form-control" id="password" name="password">

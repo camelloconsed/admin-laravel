@@ -126,6 +126,6 @@ class UserController extends Controller
         
         $user->delete();       
         Session::flash('message', 'The User was succefully deleted');
-        return view('users.index',compact('users','customer'));
+        return redirect()->route('users.index', $idCustomer);
     }
 }
