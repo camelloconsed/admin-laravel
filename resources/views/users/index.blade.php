@@ -36,7 +36,7 @@
                                     <a class="btn btn-success" href="{{ route('users.edit', ['id'=>$user->id, 'idCustomer'=>$user->customer_id]) }}"><i class="fas fa-key"></i></a>
                                 </div>
                                 <div class="col-md-3">
-                                    <form method="POST" action="{{ route('users.destroy', $customer->id) }}">
+                                    <form method="POST" action="{{ route('users.destroy', $user->id) }}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger"

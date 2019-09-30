@@ -82,7 +82,7 @@ class UserController extends Controller
     public function edit($id, $idCustomer)
     {
         $user = User::find($id);
-
+        //dd($user);
         return view('users.edit', compact('user','idCustomer'));
     }
 
@@ -95,7 +95,20 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-        dd($request->all());
+       $user = User::find($request->id);
+       $user->id = $request->id;
+       $user->customer_id = $request->customer_id;
+       $user->forenames = $request->forenames;
+       $user->surnames = $request->surnames;
+       $user->email = $request->email;       
+       $user->save();
+      
+       $idCustomer = $request->customer_id; 
+       $users = Customer::join('users', 'users.customer_id', 'customers.id')->where('users.customer_id', $idCustomer)->get();
+       $customer = Customer::find($idCustomer); 
+      
+       Session::flash('message', 'The User was succefully entered');
+       return view('users.index',compact('users','customer'));
     }
 
     /**
@@ -106,6 +119,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);        
+        $idCustomer = $user->customer_id;                            
+        $users = Customer::join('users', 'users.customer_id', 'customers.id')->where('users.customer_id', $idCustomer)->get();
+        $customer = Customer::find($idCustomer);  
+        
+        $user->delete();       
+        Session::flash('message', 'The User was succefully deleted');
+        return view('users.index',compact('users','customer'));
     }
 }

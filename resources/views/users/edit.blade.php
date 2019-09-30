@@ -3,12 +3,13 @@
 @section('content')
 <div class="container">
     <div class="card">
-        <div class="card-header">Edit the user</div>
+        <div class="card-header">Edit the user  {{ $user->id }}</div>
         <div class="card-body">
             <form  action="{{ route('updateUser')}}" method="post">
                 {{-- @method('PATCH') --}}
                 @csrf
-                <input name="customer_id" type="hidden" value="">
+                <input name="id" type="hidden" value="{{ $user->id }}">
+                <input name="customer_id" type="hidden" value="{{ $idCustomer }}">
                 <div class="form-group">
                     <label for="formGroupExampleInput">Forenames</label>
                     <input type="text" class="form-control" id="forenames" name="forenames" placeholder="Jean">
